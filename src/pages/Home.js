@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.css'; // Importa el archivo CSS para los estilos
+import ''
+
 
 const Home = () => {
     const mejoresLibros = ['Libro 1', 'Libro 2', 'Libro 3', 'Libro 4', 'Libro 5', 'Libro 6', 'Libro 7'];

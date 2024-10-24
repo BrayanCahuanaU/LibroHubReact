@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import CrudLibroB from './componentes/CrudLibro';
-import ListaLibro from './componentes/ListaLibro';
+import CrudLibroB from '../componentes/CrudLibro';
+import ListaLibro from '../componentes/ListaLibro';
+import Nav from '../componentes/Nav';
 
 function App() {
+
+  //nav
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = (searchTerm) => {
+    // Lógica para buscar libros en tu catálogo
+    console.log("Buscando libros:", searchTerm);
+  };
+
+
   const [books, setBooks] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
 
@@ -27,7 +38,17 @@ function App() {
   };
 
   return (
+    
     <div>
+      <Router>
+        <NavBar onSearch={handleSearch} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/section" element={<Section />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </Router>
       <h2>CRUD de Libros</h2>
       <CrudLibroB
         books={books}
