@@ -24,6 +24,8 @@ const Admin = () => {
     formData.append("precio", precio);
     formData.append("cantidad", cantidad);
     if (imagen) formData.append("imagen", imagen);
+    if (editIndex !== null) formData.append("editIndex", editIndex); // Enviar el índice de edición
+
 
     try {
       const response = await fetch("http://localhost:5000/addBook", {
@@ -43,34 +45,10 @@ const Admin = () => {
     } catch (error) {
       console.error("Error al agregar o modificar el libro:", error);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-/*     const newLibro = { nombre, autor, precio: parseFloat(precio), cantidad: parseInt(cantidad), imagen };
-
-    if (editIndex !== null) {
-      const updatedLibros = libros.map((libro, index) => (index === editIndex ? newLibro : libro));
-      setLibros(updatedLibros);
-      setEditIndex(null);
-    } else {
-      setLibros([...libros, newLibro]);
-    }
-
-    setNombre("");
-    setAutor("");
-    setPrecio("");
-    setCantidad("");
-    setImagen(null); */
   };
+
+
+
 
   const handleEdit = (index) => {
     const libro = libros[index];
