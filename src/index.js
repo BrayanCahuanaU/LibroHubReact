@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './pages/Crud';
-import Home from './pages/Home'
+import Admin from './pages/Admin';
+import Nav from './componentes/Nav';
+import Footer from "./componentes/Footer";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Home/>
+    <Admin/>
+    <Footer/>
   </React.StrictMode>
 );
